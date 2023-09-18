@@ -1,6 +1,6 @@
 import os
 import collections
-
+import tensorflow
 
 from ._common_blocks import ChannelSE
 from .. import get_submodules_from_kwargs
