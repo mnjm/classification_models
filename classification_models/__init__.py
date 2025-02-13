@@ -1,10 +1,10 @@
-import keras_applications as ka
+import tensorflow as tf
+import tensorflow.keras.applications as ka
 from .__version__ import __version__
 
-
 def get_submodules_from_kwargs(kwargs):
-    backend = kwargs.get('backend', ka._KERAS_BACKEND)
-    layers = kwargs.get('layers', ka._KERAS_LAYERS)
-    models = kwargs.get('models', ka._KERAS_MODELS)
-    utils = kwargs.get('utils', ka._KERAS_UTILS)
+    backend = kwargs.get('backend', None)
+    layers = kwargs.get('layers', tf.keras.layers)
+    models = kwargs.get('models', tf.keras.models)
+    utils = kwargs.get('utils', tf.keras.utils)
     return backend, layers, models, utils

@@ -41,7 +41,7 @@ def get_conv_params(**params):
 
 
 def get_bn_params(**params):
-    axis = 3 if backend.image_data_format() == 'channels_last' else 1
+    axis = 3
     default_bn_params = {
         'axis': axis,
         'momentum': 0.99,
@@ -209,7 +209,7 @@ def ResNet(model_params, input_shape=None, input_tensor=None, include_top=True,
     if input_tensor is None:
         img_input = layers.Input(shape=input_shape, name='data')
     else:
-        if not backend.is_keras_tensor(input_tensor):
+        if keras_utils.is_keras_tensor(input_tensor):
             img_input = layers.Input(tensor=input_tensor, shape=input_shape)
         else:
             img_input = input_tensor
